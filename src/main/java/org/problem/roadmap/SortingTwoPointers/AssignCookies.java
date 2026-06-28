@@ -1,4 +1,4 @@
-package org.jubl.corp.problemroadmap.SortingTwoPointers;
+package org.problem.roadmap.SortingTwoPointers;
 
 import java.util.Arrays;
 

@@ -1,4 +1,4 @@
-package org.jubl.corp.problemroadmap;
+package org.problem.roadmap;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
