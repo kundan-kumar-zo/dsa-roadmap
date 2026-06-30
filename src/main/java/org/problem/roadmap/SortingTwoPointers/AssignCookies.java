@@ -21,6 +21,15 @@ Output: 2
 Explanation: You have 2 children and 3 cookies. The greed factors of 2 children are 1, 2. 
 You have 3 cookies and their sizes are big enough to gratify all of the children, 
 You need to output 2.
+
+-----------------------Solution-------------------------------
+Sort children by greed and cookies by size. Two pointers glen, slen.
+If cookie s[slen] >= greed g[glen], assign it and advance both pointers.
+Otherwise the cookie is too small — skip it (slen++).
+Greedy choice: satisfy the least greedy child first with the smallest usable cookie,
+leaving larger cookies for greedier children.
+
+Time: O(n log n + m log m), Space: O(1)
  */
 public class AssignCookies {
     public int findContentChildren(int[] g, int[] s) {
@@ -34,7 +43,7 @@ public class AssignCookies {
                 glen++;
                 slen++;
             } else if (g[glen] > s[slen]) {
-                slen++;
+                slen++; // cookie too small for this child
             } else  {
                 glen++;
             }

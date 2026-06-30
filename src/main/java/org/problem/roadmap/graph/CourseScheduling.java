@@ -8,6 +8,17 @@ import java.util.Map;
 /*
     207. Course Schedule
     https://leetcode.com/problems/course-schedule/description/
+
+    -----------------------Solution-------------------------------
+    Build a directed graph: prerequisite [a,b] means b → a (must take b before a).
+    Detect a cycle with DFS using two flags per node:
+      visited — on the current recursion stack (back edge = cycle)
+      done    — fully explored with no cycle below
+
+    If any node on the current path is revisited, prerequisites form a cycle → false.
+    If all nodes finish cleanly → true.
+
+    Time: O(V + E), Space: O(V + E)
  */
 public class CourseScheduling {
     public boolean canFinish(int numCourses, int[][] prerequisites) {
@@ -33,13 +44,13 @@ public class CourseScheduling {
             return false;
         }
         if (done[node]) {
-            return false;
+            return false; // already verified — no cycle in this subtree
         }
         visited[node] = true;
         boolean res = false;
         for (int num : graph.get(node)) {
             if (num == node || visited[num]) {
-                return true;
+                return true; // back edge — cycle found
             }
             res = res || detectCycle(num, visited, graph, done);
         }
