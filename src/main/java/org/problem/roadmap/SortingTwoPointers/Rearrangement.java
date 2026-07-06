@@ -29,4 +29,22 @@ public class Rearrangement {
         }
         return arr[arr.length - 1];
     }
+
+    /*
+    Leetcode: 881
+     */
+    public int numRescueBoats(int[] people, int limit) {
+        Arrays.sort(people);
+        int left = 0, right = people.length - 1, count = 0;
+        while (left <= right) {
+            if (people[left] + people[right] > limit) {
+                right--;
+            } else {
+                left++;
+                right--;
+            }
+            count++;
+        }
+        return  count;
+    }
 }

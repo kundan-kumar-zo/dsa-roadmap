@@ -1,5 +1,7 @@
 package org.problem.roadmap.graph;
 
+import java.util.*;
+
 public class Islands {
     /*
     200. Number of islands
@@ -38,5 +40,75 @@ public class Islands {
         travel(grid, i + 1, j, visited);
         travel(grid, i, j - 1, visited);
         travel(grid, i, j + 1, visited);
+    }
+    public int findMaxPathScore(int[][] edges, boolean[] online, long k) {
+        Map<Integer, List<int[]>> graph = new HashMap<>();
+        for (var edge : edges) {
+            if (online[edge[0]]) {
+                graph.computeIfAbsent(edge[0], p -> new ArrayList<>());
+                if (online[edge[1]]) {
+                    graph.get(edge[0]).add(new int[]{edge[1], edge[2]});
+                }
+            }
+        }
+        PriorityQueue<int[]> dqueue = new PriorityQueue<>();
+        int n = online.length;
+        int[] minDistance = new int[n];
+        boolean[] visited = new boolean[n];
+        Arrays.fill(minDistance, Integer.MAX_VALUE);
+        Queue<Integer> tQueue = new LinkedList<>();
+        tQueue.offer(0);
+        minDistance[0] = 0;
+        while (!tQueue.isEmpty()) {
+            int node = tQueue.poll();
+            if (!visited[node]) {
+                visited[node] = true;
+                for (int[] arr : graph.get(node)) {
+                    minDistance[arr[0]] = Math.min(minDistance[arr[0]], minDistance[node] + arr[1]);
+                    tQueue.offer(arr[0]);
+                }
+            }
+        }
+        System.out.println(minDistance[n-1]);
+        PriorityQueue<Integer> queue = new PriorityQueue<>(Collections.reverseOrder());
+        return queue.isEmpty() ? -1 : queue.peek();
+    }
+    private void travel(Map<Integer, List<int[]>> graph, int node, boolean[] visited,
+                        int cost, PriorityQueue<Integer> queue, int minCost, long k) {
+        if (visited[node]) {
+            return;
+        }
+        if (node == visited.length - 1 && k >= 0) {
+            queue.offer(minCost);
+        }
+        visited[node] = true;
+        List<int[]> list = graph.get(node);
+        for (int[] arr : list) {
+            travel(graph, arr[0], visited, arr[1], queue, Math.min(minCost, arr[1]), k - arr[1]);
+        }
+        visited[node] = false;
+    }
+
+    public int minScore(int n, int[][] roads) {
+        Map<Integer, List<int[]>> graph = new HashMap<>();
+        for (int[] road : roads) {
+            graph.computeIfAbsent(road[0], p -> new ArrayList<>()).add(new int[] {road[1], road[2]});
+            graph.computeIfAbsent(road[1], p -> new ArrayList<>()).add(new int[] {road[0], road[2]});
+        }
+        boolean[] visited = new boolean[n+1];
+        PriorityQueue<int[]> tQueue = new PriorityQueue<>(Comparator.comparingInt(arr -> arr[1]));
+        tQueue.offer(new int[]{1, 0});
+        int ans = Integer.MAX_VALUE;
+        while (!tQueue.isEmpty()) {
+            int[] node = tQueue.poll();
+            if (!visited[node[0]]) {
+                visited[node[0]] = true;
+                for (int[] arr : graph.get(node[0])) {
+                    ans = Math.min(ans, arr[1]);
+                    tQueue.offer(new int[]{arr[0], arr[1]});
+                }
+            }
+        }
+        return ans;
     }
 }

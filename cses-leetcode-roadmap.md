@@ -52,23 +52,23 @@ Goal: warm up, get comfortable with I/O, simulation, basic greedy and recursion.
 
 Goal: master the most common interview patterns — sorting + two pointers, hashing, sliding window, prefix sums, sweep line.
 
-| #  | CSES                    | LeetCode                                                            | Concept              | Progress |
-|----|-------------------------|---------------------------------------------------------------------|----------------------|----------|
-| 6  | Distinct Numbers        | 217. Contains Duplicate                                             | Hashing              |          |
-| 7  | Apartments              | 455. Assign Cookies                                                 | Two pointers         | ✅       |
-| 8  | Ferris Wheel            | 881. Boats to Save People                                           | Greedy               |          |
-| 9  | Sum of Two Values       | 1. Two Sum                                                          | Hashing              |          |
-| 10 | Sum of Three Values     | 15. 3Sum                                                            | Sorting              |          |
-| 11 | Sum of Four Values      | 18. 4Sum                                                            | Two pointers         |          |
-| 12 | Stick Lengths           | 462. Minimum Moves to Equal Array Elements II                       | Median               |          |
-| 13 | Maximum Subarray Sum    | 53. Maximum Subarray                                                | Kadane               |          |
-| 14 | Restaurant Customers    | 253. Meeting Rooms II                                               | Sweep line           |          |
-| 15 | Movie Festival          | 435. Non-overlapping Intervals                                      | Interval scheduling  |          |
-| 16 | Tasks and Deadlines     | 630. Course Schedule III                                            | Greedy               |          |
-| 17 | Towers                  | 354. Russian Doll Envelopes *(LIS idea)*                            | Binary search        |          |
-| 18 | Playlist                | 3. Longest Substring Without Repeating Characters                   | Sliding window       |          |
-| 19 | Subarray Sums I         | 560. Subarray Sum Equals K                                          | Prefix sum           |          |
-| 20 | Sliding Window Median   | 480. Sliding Window Median                                          | Ordered set          |          |
+| #  | CSES                    | LeetCode                                          | Concept              | Progress |
+|----|-------------------------|---------------------------------------------------|----------------------|----------|
+| 6  | Distinct Numbers        | 217. Contains Duplicate                           | Hashing              |          |
+| 7  | Apartments              | 455. Assign Cookies                               | Two pointers         | ✅        |
+| 8  | Ferris Wheel            | 881. Boats to Save 881People                      | Greedy               | ✅        |
+| 9  | Sum of Two Values       | 1. Two Sum                                        | Hashing              |          |
+| 10 | Sum of Three Values     | 15. 3Sum                                          | Sorting              |          |
+| 11 | Sum of Four Values      | 18. 4Sum                                          | Two pointers         |          |
+| 12 | Stick Lengths           | 462. Minimum Moves to Equal Array Elements II     | Median               |          |
+| 13 | Maximum Subarray Sum    | 53. Maximum Subarray                              | Kadane               | ✅        |
+| 14 | Restaurant Customers    | 253. Meeting Rooms II                             | Sweep line           |          |
+| 15 | Movie Festival          | 435. Non-overlapping Intervals                    | Interval scheduling  |          |
+| 16 | Tasks and Deadlines     | 630. Course Schedule III                          | Greedy               |          |
+| 17 | Towers                  | 354. Russian Doll Envelopes *(LIS idea)*          | Binary search        |          |
+| 18 | Playlist                | 3. Longest Substring Without Repeating Characters | Sliding window       |          |
+| 19 | Subarray Sums I         | 560. Subarray Sum Equals K                        | Prefix sum           | ✅        |
+| 20 | Sliding Window Median   | 480. Sliding Window Median                        | Ordered set          |          |
 
 ---
 
